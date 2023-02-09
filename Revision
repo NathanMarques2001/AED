@@ -1,4 +1,4 @@
-/*Revisão Algorítmos e Estruturas de dados II
+Revisão Algorítmos e Estruturas de dados II
 Exercício 1: pkg funcionarios - Lista
 Elaborar um código em Java para que seja possível efetuar o controle de funcionários de uma empresa.
 
@@ -10,12 +10,12 @@ Tipo Abstrato de Dados (TAD) Lista
 Criar um vetor chamado: funcionarios, com capacidade para armazenar até 100 posições, como estrutura para armazenamento de objetos do tipo Funcionario. Não devem ser utilizadas classes já prontas do Java como ArrayList, Vector, etc.;
 Implementar os seguintes métodos com suas respectivas assinaturas:
 public void adiciona(Funcionario func) {}
-public Funcionario busca(int posicao) {}
-private boolean posicaoOcupada(int posicao) {}
+--public Funcionario busca(int posicao) {}
+--private boolean posicaoOcupada(int posicao) {}
 public void remove(int posicao) {}
-public boolean contem(String nome) {}
-public int tamanho() {}
-public void imprimeLista() {}
+--public boolean contem(String nome) {}
+--public int tamanho() {}
+--public void imprimeLista() {}
 public void ordenaPorNome() {}
 Obs.: Se necessário, podem ser implementados outros métodos auxiliares além dos acima citados.
 
@@ -30,4 +30,4 @@ Busque um funcionário por sua posição
 Busque um funcionário com uma posição inválida
 Liste todos os funcionários em ordem alfabética
 Realizar uma remoção de um registro existente
-Tentar uma remoção de um registro não existente*/
+Tentar uma remoção de um registro não existente
