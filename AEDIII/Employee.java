@@ -1,6 +1,6 @@
 package Revision;
 
-class Employee{
+class Employee {
   private String name;
   private double salary;
 
