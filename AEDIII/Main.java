@@ -3,9 +3,10 @@ package Revision;
 public class Main {
   public static void main(String[] args) {
     /*
-Liste todos os funcionários em ordem alfabética
-Realizar uma remoção de um registro existente
-Tentar uma remoção de um registro não existente*/
+     * Liste todos os funcionários em ordem alfabética
+     * Realizar uma remoção de um registro existente
+     * Tentar uma remoção de um registro não existente
+     */
     Employee one = new Employee("Iago", 1100);
     Employee two = new Employee("Edson", 2200);
     Employee three = new Employee("Rosa", 5000);
@@ -28,6 +29,12 @@ Tentar uma remoção de um registro não existente*/
     EmployersList.search(0);
     EmployersList.search(5);
 
-    EmployersList.orderByName();
+    EmployersList.alphabeticalOrder();
+
+    EmployersList.remove(1);
+    EmployersList.remove(10);
+
+    EmployersList.printList();
+
   }
 }
