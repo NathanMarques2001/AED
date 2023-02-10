@@ -2,13 +2,16 @@ package Revision;
 
 public class List {
   Employee Employers[] = new Employee[100];
+  private int length = 0;
 
   public void add(Employee newEmployee) {
     if (Employers[99] == null) {
       for (int i = 0; i < Employers.length; i++) {
         if (Employers[i] == null) {
           Employers[i] = newEmployee;
-          System.out.println("Funcionario " + newEmployee.getName() + " adicionado a lista.");
+          System.out.println("\nFuncionario " + newEmployee.getName()
+              + " adicionado a lista.\n=============================================");
+          length++;
           break;
         }
       }
@@ -17,14 +20,15 @@ public class List {
     }
   }
 
-
   public Employee search(int position) {
-    if(Employers[position] == null){
-      System.out.println("Nao achei");
+    System.out.println("\nBuscando funcionario pelo numero...\n---------------------------------------------");
+    if (Employers[position] == null) {
+      System.out.println("Nao encontrei ninguem nesta posicao!\n=============================================");
     } else {
-      System.out.println(Employers[position].getName());
+      System.out.println("Encontrei " + Employers[position].getName()
+          + " nesta posicao.\n=============================================");
     }
-      return Employers[position];
+    return Employers[position];
   }
 
   private boolean positionIsBusy(int position) {
@@ -36,24 +40,37 @@ public class List {
 
   public void remove(int position) {
     if (Employers[position] != null) {
-      System.out.println("Funcionario " + Employers[position] + " removido da lista.");
+      System.out.println("\nRemovendo um funcionario pelo numero...\n---------------------------------------------");
+      System.out.println("Funcionario " + Employers[position].getName()
+          + " removido da lista.\n=============================================");
       Employers[position] = null;
+      length--;
+      for (int i = 0; i < Employers.length; i++) {
+        if (i < length) {
+          if (Employers[i] == null && Employers[i + 1] != null) {
+            Employers[i] = Employers[i + 1];
+            Employers[i + 1] = null;
+          }
+        }
+      }
     } else {
-      System.out.println("Esta posicao ainda nao foi ocupada!");
+      System.out.println(
+          "\nEsta posicao esta vazia, entao nao posso\nremover ninguem. Favor verificar o numero\nda pessoa que deseja remover!\n=============================================");
     }
   }
 
   public void containInList(String name) {
+    System.out.println("\nBuscando funcionario na lista pelo nome...\n---------------------------------------------");
     if (contain(name)) {
-      System.out.println("Encontrei " + name + " na lista!");
+      System.out.println("Encontrei " + name + " na lista!\n=============================================");
     } else {
-      System.out.println("Nao encontrei " + name + " na lista =(");
+      System.out.println("Nao encontrei " + name + " na lista =(\n=============================================");
     }
   }
 
   private boolean contain(String name) {
     for (int i = 0; i < Employers.length; i++) {
-      if(Employers[i] != null) {
+      if (Employers[i] != null) {
         if (Employers[i].getName().equalsIgnoreCase(name)) {
           return true;
         }
@@ -69,24 +86,46 @@ public class List {
   }
 
   public void printList() {
-    System.out.println("Lista de funcionarios e respectivos salarios\n=====================================");
+    System.out.println("\nLista de funcionarios e respectivos salarios\n---------------------------------------------");
     for (int i = 0; i < Employers.length; i++) {
       if (Employers[i] != null) {
-        System.out.println(i + " -> " + Employers[i].getName() + " - " + Employers[i].getSalary());
+        System.out.println(i + " -> " + Employers[i].getName() + " - $" + Employers[i].getSalary());
       } else {
         break;
       }
     }
+    System.out.println("=============================================");
   }
 
-  public void orderByName() {
-    System.out.println("Lista de funcionarios em ordenados por nome\n=====================================");
-    for (int i = 0; i < Employers.length; i++) {
-      if(Employers[i] != null){
-        System.out.println("1 -> " + Employers[i].getName() + " - " + Employers[i].getSalary());
+  public Employee[] alphabeticalOrder() {
+    Employee auxEmployee;
+    Employee[]Emp = Employers;
+    for (int i = 0; i < Emp.length; i++) {
+      if (Emp[i] != null) {
+        for (int j = 0; j < Emp.length; j++) {
+          if (Emp[i].getName().compareTo(Emp[j].getName()) > 0) {
+            auxEmployee = Emp[i];
+            Emp[i] = Emp[j];
+            Emp[j] = auxEmployee;
+          }
+        }
       } else {
         break;
       }
     }
+    printAlphabeticalOrder(Emp);
+    return Emp;
+  }
+
+  public void printAlphabeticalOrder(Employee []arr) {
+    System.out.println("\nLista de funcionarios em ordenados por nome\n---------------------------------------------");
+    for (int i = 0; i < Employers.length; i++) {
+      if (Employers[i] != null) {
+        System.out.println(i + " -> " + Employers[i].getName() + " - $" + Employers[i].getSalary());
+      } else {
+        break;
+      }
+    }
+    System.out.println("=============================================");
   }
 }
