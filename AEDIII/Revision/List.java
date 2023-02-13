@@ -5,12 +5,11 @@ public class List {
 	private int length = 0;
 
 	public void addNewEmployee(Employee newEmployee) {
-		if (Employers[99] == null) {
+		if (length < 100) {
 			Employers[length] = newEmployee;
 			System.out.println("\nFuncionario " + newEmployee.getName()
 					+ " adicionado a lista.\n=============================================");
 			length++;
-
 		} else {
 			System.out.print("A lista ja alcancou sua capacidade maxima!");
 		}
