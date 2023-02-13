@@ -1,40 +1,41 @@
+
 package Revision;
 
 public class Main {
-  public static void main(String[] args) {
-    /*
-     * Liste todos os funcionários em ordem alfabética
-     * Realizar uma remoção de um registro existente
-     * Tentar uma remoção de um registro não existente
-     */
-    Employee one = new Employee("Iago", 1100);
-    Employee two = new Employee("Edson", 2200);
-    Employee three = new Employee("Rosa", 5000);
-    Employee four = new Employee("Larissa", 1500);
-    Employee five = new Employee("Lais", 800);
+	public static void main(String[] args) {
 
-    List EmployersList = new List();
+		Employee one = new Employee("Iago", 1100);
+		Employee two = new Employee("Edson", 2200);
+		Employee three = new Employee("Rosa", 5000);
+		Employee four = new Employee("Larissa", 1500);
+		Employee five = new Employee("Lais", 800);
+		Employee six = new Employee("Bruno", 5200);
+		Employee seven = new Employee("Bruna", 7000);
 
-    EmployersList.add(one);
-    EmployersList.add(two);
-    EmployersList.add(three);
-    EmployersList.add(four);
-    EmployersList.add(five);
+		List EmployersList = new List();
 
-    EmployersList.printList();
+		EmployersList.addNewEmployee(one);
+		EmployersList.addNewEmployee(two);
+		EmployersList.addNewEmployee(three);
+		EmployersList.addNewEmployee(four);
+		EmployersList.addNewEmployee(five);
+		EmployersList.addNewEmployee(six);
+		EmployersList.addNewEmployee(seven);
 
-    EmployersList.containInList("rosa");
-    EmployersList.containInList("nathan");
+		EmployersList.printList();
 
-    EmployersList.search(0);
-    EmployersList.search(5);
+		EmployersList.printSearchEmployeeForName("rosa");
+		EmployersList.printSearchEmployeeForName("nathan");
 
-    EmployersList.alphabeticalOrder();
+		EmployersList.searchEmployeeForNumber(0);
+		EmployersList.searchEmployeeForNumber(7);
 
-    EmployersList.remove(1);
-    EmployersList.remove(10);
+		EmployersList.alphabeticalOrder();
 
-    EmployersList.printList();
+		EmployersList.removeEmployeeForNumber(2);
+		EmployersList.removeEmployeeForNumber(10);
 
-  }
+		EmployersList.printList();
+			
+	}
 }
