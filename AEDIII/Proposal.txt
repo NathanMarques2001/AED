@@ -3,21 +3,25 @@ Exercício 1: pkg funcionarios - Lista
 Elaborar um código em Java para que seja possível efetuar o controle de funcionários de uma empresa.
 
 Requisitos:
+
 Classe Funcionário
 Criar uma classe Funcionário que deverá conter como atributos o nome e o salário do funcionário;
 Criar um construtor e os métodos get e set para todos os atributos da classe;
+--Arquivo Employee
+
 Tipo Abstrato de Dados (TAD) Lista
---Criar um vetor chamado: funcionarios, com capacidade para armazenar até 100 posições, como estrutura para armazenamento de objetos do tipo Funcionario. Não devem ser utilizadas classes já prontas do Java como ArrayList, Vector, etc.;
+Criar um vetor chamado: funcionarios, com capacidade para armazenar até 100 posições, como estrutura para armazenamento de objetos do tipo Funcionario. Não devem ser utilizadas classes já prontas do Java como ArrayList, Vector, etc.;
 Implementar os seguintes métodos com suas respectivas assinaturas:
---public void adiciona(Funcionario func) {}
---public Funcionario busca(int posicao) {}
---private boolean posicaoOcupada(int posicao) {}
--*public void remove(int posicao) {}
---public boolean contem(String nome) {}
---public int tamanho() {}
---public void imprimeLista() {}
---public void ordenaPorNome() {}
+public void adiciona(Funcionario func) {}
+public Funcionario busca(int posicao) {}
+private boolean posicaoOcupada(int posicao) {}
+public void remove(int posicao) {}
+public boolean contem(String nome) {}
+public int tamanho() {}
+public void imprimeLista() {}
+public void ordenaPorNome() {}
 Obs.: Se necessário, podem ser implementados outros métodos auxiliares além dos acima citados.
+--Arquivo List
 
 Classe de Teste (Main)
 Desenvolva um código Java para testar as classes Funcionário e Lista que realize as seguintes tarefas:
@@ -31,3 +35,4 @@ Busque um funcionário com uma posição inválida
 Liste todos os funcionários em ordem alfabética
 Realizar uma remoção de um registro existente
 Tentar uma remoção de um registro não existente
+--Arquivo Main
