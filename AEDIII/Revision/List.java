@@ -71,4 +71,13 @@ public class List {
     public int size() {
         return length;
     }
+
+    public Employee[] empties(){
+        while (!isEmpty()){
+            dequeue();
+            printIsEmpty();
+        }
+        return Employers;
+    }
+
 }
