@@ -15,7 +15,7 @@ public class Stack {
         if(isEmpty()){
             System.out.println("A pilha esta vazia!\n=============================================");
         } else {
-            System.out.println("A nao pilha esta vazia!\n=============================================");
+            System.out.println("A pilha nao esta vazia!\n=============================================");
         }
     }
 
@@ -72,6 +72,14 @@ public class Stack {
             System.out.println((length - i) + " -> " + Employers[i].getName() + " - R$" + Employers[i].getSalary());
         }
         System.out.println("=============================================");
+    }
+
+    public Employee[] empties(){
+        while(!isEmpty()){
+            pop();
+            printIsEmpty();
+        }
+        return Employers;
     }
 
     public int size() {
