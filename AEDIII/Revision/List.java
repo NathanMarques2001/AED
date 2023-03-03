@@ -5,9 +5,8 @@ public class List {
     private int length = 0;
 
     private boolean isEmpty() {
-        if(Employers[0] == null){
+        if(Employers[0] == null)
             return true;
-        }
         return false;
     }
 
@@ -53,11 +52,10 @@ public class List {
     }
 
     private boolean contain(String name) {
-        for (int i = 0; i < length; i++) {
-            if(name.equalsIgnoreCase(Employers[i].getName())){
-                return true;
+            for (int i = 0; i < length; i++) {
+                if(name.equalsIgnoreCase(Employers[i].getName()))
+                    return true;
             }
-        }
         return false;
     }
 
