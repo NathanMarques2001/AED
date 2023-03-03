@@ -36,9 +36,8 @@ public class Company {
     }
 
     private boolean positionIsBusy(int position) {
-        if (Employers[position] != null) {
+        if (Employers[position] != null)
             return true;
-        }
         return false;
     }
 
@@ -79,9 +78,8 @@ public class Company {
 
     private boolean searchEmployeeForName(String name) {
         for (int i = 0; i < length; i++) {
-            if (Employers[i].getName().equalsIgnoreCase(name)) {
+            if (Employers[i].getName().equalsIgnoreCase(name))
                 return true;
-            }
         }
         return false;
     }
