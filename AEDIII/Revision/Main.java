@@ -1,90 +1,99 @@
 package Revision;
 
 public class Main {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    Company CompanyData = new Company();
+        Company CompanyData = new Company();
 
-    System.out.println("\n++++++TESTANDO A CLASSE EMPRESA++++++");
+        System.out.println("\n++++++TESTANDO A CLASSE EMPRESA++++++");
 
-    CompanyData.addNewEmployee(new Employee("Iago", 1100));
-    CompanyData.addNewEmployee(new Employee("Edson", 2200));
-    CompanyData.addNewEmployee(new Employee("Rosa", 5000));
-    CompanyData.addNewEmployee(new Employee("Larissa", 1500));
-    CompanyData.addNewEmployee(new Employee("Lais", 800));
-    CompanyData.addNewEmployee(new Employee("Bruno", 5200));
-    CompanyData.addNewEmployee(new Employee("Bruna", 7000));
+        CompanyData.addNewEmployee(new Employee("Iago", 1100));
+        CompanyData.addNewEmployee(new Employee("Edson", 2200));
+        CompanyData.addNewEmployee(new Employee("Rosa", 5000));
+        CompanyData.addNewEmployee(new Employee("Larissa", 1500));
+        CompanyData.addNewEmployee(new Employee("Lais", 800));
+        CompanyData.addNewEmployee(new Employee("Bruno", 5200));
+        CompanyData.addNewEmployee(new Employee("Bruna", 7000));
 
-    CompanyData.printCompanyData();
+        CompanyData.printCompanyData();
 
-    CompanyData.printSearchEmployeeForName("rosa");
-    CompanyData.printSearchEmployeeForName("nathan");
+        CompanyData.printSearchEmployeeForName("rosa");
+        CompanyData.printSearchEmployeeForName("nathan");
 
-    CompanyData.searchEmployeeForNumber(0);
-    CompanyData.searchEmployeeForNumber(7);
+        CompanyData.searchEmployeeForNumber(0);
+        CompanyData.searchEmployeeForNumber(7);
 
-    CompanyData.alphabeticalOrder();
+        CompanyData.alphabeticalOrder();
 
-    CompanyData.removeEmployeeForNumber(2);
-    CompanyData.removeEmployeeForNumber(10);
+        CompanyData.removeEmployeeForNumber(2);
+        CompanyData.removeEmployeeForNumber(10);
 
-    CompanyData.printCompanyData();
+        CompanyData.printCompanyData();
 
-    System.out.println("\n++++++FIM DOS TESTES DA CLASSE EMPRESA++++++");
-    System.out.println("............................................");
+        System.out.println("\n++++++FIM DOS TESTES DA CLASSE EMPRESA++++++");
+        System.out.println("............................................");
 
-    //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
 
-    System.out.println("\n++++++TESTANDO A CLASSE PILHA++++++");
+        System.out.println("\n++++++TESTANDO A CLASSE PILHA++++++");
 
-    Stack EmployersStack = new Stack();
+        Stack EmployersStack = new Stack();
 
-    EmployersStack.push(new Employee("Iago", 1100));
-    EmployersStack.push(new Employee("Edson", 2200));
-    EmployersStack.push(new Employee("Rosa", 5000));
-    EmployersStack.push(new Employee("Larissa", 1500));
-    EmployersStack.push(new Employee("Lais", 800));
-    EmployersStack.push(new Employee("Bruno", 5200));
-    EmployersStack.push(new Employee("Bruna", 7000));
+        EmployersStack.push(new Employee("Iago", 1100));
+        EmployersStack.push(new Employee("Edson", 2200));
+        EmployersStack.push(new Employee("Rosa", 5000));
+        EmployersStack.push(new Employee("Larissa", 1500));
+        EmployersStack.push(new Employee("Lais", 800));
+        EmployersStack.push(new Employee("Bruno", 5200));
+        EmployersStack.push(new Employee("Bruna", 7000));
 
-    EmployersStack.print();
+        EmployersStack.printIsEmpty();
 
-    EmployersStack.printContain("rosa");
-    EmployersStack.printContain("nathan");
+        EmployersStack.print();
 
-    EmployersStack.pop();
-    EmployersStack.pop();
+        EmployersStack.printContain("rosa");
+        EmployersStack.printContain("nathan");
 
-    EmployersStack.print();
+        EmployersStack.pop();
+        EmployersStack.pop();
 
-    System.out.println("\n++++++FIM DOS TESTES DA CLASSE PILHA++++++");
-    System.out.println("............................................");
+        EmployersStack.print();
 
-    //////////////////////////////////////////////////////////
+        EmployersStack.empties();
 
-    System.out.println("\n++++++TESTANDO A CLASSE LISTA++++++");
+        System.out.println("\n++++++FIM DOS TESTES DA CLASSE PILHA++++++");
+        System.out.println("............................................");
 
-    List EmployersList = new List();
+        //////////////////////////////////////////////////////////
 
-    EmployersList.enqueue(new Employee("Iago", 1100));
-    EmployersList.enqueue(new Employee("Edson", 2200));
-    EmployersList.enqueue(new Employee("Rosa", 5000));
-    EmployersList.enqueue(new Employee("Larissa", 1500));
-    EmployersList.enqueue(new Employee("Lais", 800));
-    EmployersList.enqueue(new Employee("Bruno", 5200));
-    EmployersList.enqueue(new Employee("Bruna", 7000));
+        System.out.println("\n++++++TESTANDO A CLASSE LISTA++++++");
 
-    EmployersList.print();
+        List EmployersList = new List();
 
-    EmployersList.printContain("rosa");
-    EmployersList.printContain("nathan");
+        EmployersList.enqueue(new Employee("Iago", 1100));
+        EmployersList.enqueue(new Employee("Edson", 2200));
+        EmployersList.enqueue(new Employee("Rosa", 5000));
+        EmployersList.enqueue(new Employee("Larissa", 1500));
+        EmployersList.enqueue(new Employee("Lais", 800));
+        EmployersList.enqueue(new Employee("Bruno", 5200));
+        EmployersList.enqueue(new Employee("Bruna", 7000));
 
-    EmployersList.dequeue();
-    EmployersList.dequeue();
+        EmployersList.printIsEmpty();
 
-    EmployersList.print();
+        EmployersList.print();
 
-    System.out.println("\n++++++FIM DOS TESTES DA CLASSE LISTA++++++");
-    System.out.println("............................................");
-  }
+        EmployersList.printContain("rosa");
+        EmployersList.printContain("2");
+        EmployersList.printContain("nathan");
+
+        EmployersList.dequeue();
+        EmployersList.dequeue();
+
+        EmployersList.print();
+
+        EmployersList.empties();
+
+        System.out.println("\n++++++FIM DOS TESTES DA CLASSE LISTA++++++");
+        System.out.println("............................................");
+    }
 }
