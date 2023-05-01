@@ -1,9 +1,10 @@
+package ReadFile;
 import java.io.*;
 
 public class CountBytes {
     public static void main(String[] args) throws IOException {
 
-        FileInputStream in = new FileInputStream("caminho do arquivo txt");
+        FileInputStream in = new FileInputStream("src/ReadFile/file.txt");
 
         int value, total = 0;
 

@@ -1,8 +1,10 @@
+package ReadFile;
+
 import java.io.*;
 public class CountSpaces {
     public static void main(String[] args) throws IOException{
 
-        FileInputStream in = new FileInputStream("caminho do arquivo txt");
+        FileInputStream in = new FileInputStream("src/ReadFile/file.txt");
 
         int total = 0, space = 0, value;
 

@@ -1,8 +1,10 @@
+package ReadFile;
+
 import java.io.*;
 public class CountLines {
     public static void main(String[] args) throws IOException{
 
-        BufferedReader in = new BufferedReader(new FileReader("caminho do arquivo txt"));
+        BufferedReader in = new BufferedReader(new FileReader("src/ReadFile/file.txt"));
 
         String line = in.readLine();
         int countLine = 0;
