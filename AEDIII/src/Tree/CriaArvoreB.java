@@ -6,21 +6,23 @@ import java.util.Random;
 public class CriaArvoreB {
 	public static void main(String[] args) throws Exception {
 
-		ArvoreB dicionario = new ArvoreB(ordemArvore());
+		ArvoreB dicionario = new ArvoreB(ordemArvore(4, 8));
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		Random geradorNumeros = new Random();
-		double myArray[] = new double[10000];
+
+		double myArray[] = new double[1000];
 		double resultado = 0;
 		int chave = 0;
 
 		System.out.println("Criacao da arvore");
 
 		for (int i = 0; i < myArray.length; i++) {
-			myArray[i] = i;
+			resultado = geradorNumeros.nextInt();
+			myArray[i] = Math.round(resultado / 100000);
 		}
-		
+
 		for (int j = 0; j < myArray.length; j++) {
-			chave = (int)myArray[j];
+			chave = (int) myArray[j];
 			MeuItem item = new MeuItem(chave);
 			dicionario.insere(item);
 			dicionario.imprime();
@@ -48,13 +50,12 @@ public class CriaArvoreB {
 		}
 	}
 
-	static int ordemArvore() {
+	static int ordemArvore(int tamanhoBloco, int tamanhoRegistro) {
 		int tamPonteiroBloco = 16;
-		int tamIndice = 8;
 		int tamPonteiroNo = 12;
-		int tamanhoBloco = 4096;
+		int tamBloco = tamanhoBloco * 1024;
 
-		int ordem = Math.round(((tamanhoBloco - tamPonteiroNo) / (tamPonteiroBloco + tamIndice + tamPonteiroNo)) + 1);
+		int ordem = Math.round(((tamBloco - tamPonteiroNo) / (tamPonteiroBloco + tamanhoRegistro + tamPonteiroNo)) + 1);
 		return ordem;
 	}
 }
