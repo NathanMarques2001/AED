@@ -3,8 +3,11 @@ package Trabalho;
 import java.io.*;
 import java.util.*;
 
-public class Compressor {
+public class RLE_Compressor {
 	public static void main(String[] args) throws IOException {
+
+		//Pega o path do diretório pai
+		String pathSrc= System.getProperty("user.dir") + "/AEDIII/src/Trabalho/imagens/";
 
 		Scanner sc = new Scanner(System.in);
 
@@ -12,8 +15,8 @@ public class Compressor {
 		String nomeArquivo = sc.nextLine();
 		sc.close();
 
-		String pathArquivoPrincipal = "src/Trabalho/imagens/" + nomeArquivo + ".pgm";
-		String pathArquivoComprimido = "src/Trabalho/imagens/" + nomeArquivo + "-comp-RLE.pgm";
+		String pathArquivoPrincipal = pathSrc + nomeArquivo + ".pgm";
+		String pathArquivoComprimido = pathSrc + nomeArquivo + "-comp-RLE.pgm";
 
 		FormataPGM(pathArquivoPrincipal, pathArquivoComprimido);
 		ComprimePGM(pathArquivoComprimido);
@@ -65,7 +68,7 @@ public class Compressor {
 			if (pgmProcessado.get(i).intValue() == pgmProcessado.get(i + 1).intValue()) {
 				count++;
 			} else {
-				RLE += count + "@" + pgmProcessado.get(i).intValue();
+				RLE += count + "@" + pgmProcessado.get(i).intValue() + " ";
 				if (count > 1) {
 					count = 1;
 				}
