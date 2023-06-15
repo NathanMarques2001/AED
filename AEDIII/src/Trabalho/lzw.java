@@ -1,19 +1,23 @@
-package Trabalho;
 import java.io.*;
 import java.util.*;
 
-public class LZW {
+public class lzw {
 
-    private static final String NOME_ARQUIVO_A_SER_CODIFICADO = "C:/Users/processos03/Desktop/AED/AEDIII/src/Trabalho/imagens/venus.pgm";
-    private static final String NOME_ARQUIVO_CODIFICADO = "C:/Users/processos03/Desktop/AED/AEDIII/src/Trabalho/imagens/venus-comp-lzw.pgm";
-    private static final String NOME_ARQUIVO_DECODIFICADO = "C:/Users/processos03/Desktop/AED/AEDIII/src/Trabalho/imagens/venus-desc-lzw.pgm";
+    private static String NOME_ARQUIVO_A_SER_CODIFICADO;
+    private static String NOME_ARQUIVO_CODIFICADO;
+    private static String NOME_ARQUIVO_DECODIFICADO;
 
-    public static void main(String[] args) throws IOException {
+    public lzw(String pathArquivo, String pathArquivoComprimido, String pathArquivoDescomprimido){
+        this.NOME_ARQUIVO_A_SER_CODIFICADO = pathArquivo;
+        this.NOME_ARQUIVO_CODIFICADO = pathArquivoComprimido;
+        this.NOME_ARQUIVO_DECODIFICADO = pathArquivoDescomprimido;
+    }
 
+    public void comprime() throws IOException{
         encode();
         decode();
-
     }
+
 
     private static void decode() throws IOException {
 
@@ -28,12 +32,6 @@ public class LZW {
         }
 
         SC = leArquivoCodificado();
-
-        // imprime sequencia codificada
-        for (Integer codigo : SC) {
-            System.out.print(codigo + " ");
-        }
-        System.out.println();
 
         // decodificação
         int cW, pW;
@@ -63,10 +61,7 @@ public class LZW {
             }
         }
 
-        for (String caractere : sequencia) {
-            System.out.print(caractere);
-        }
-        System.out.println();
+        System.out.println("ARQUIVO DESCOMPRIMIDO!");
 
         escreveNoArquivoEmTexto(sequencia, NOME_ARQUIVO_DECODIFICADO);
     }
@@ -80,14 +75,7 @@ public class LZW {
 
         // inicializa o dicionário com os símbolos ASCII
         for (int i = 0; i < 256; i++) {
-            System.out.println(i + "=" + (char) i);
             dicionario.put("" + (char) i, i);
-        }
-
-        // imprime dicionario criado chave = valor
-        for (String key : dicionario.keySet()) {
-            int value = dicionario.get(key);
-            System.out.println(key + " = " + value);
         }
 
         // codificação
@@ -108,17 +96,7 @@ public class LZW {
         }
         SC.add(dicionario.get(P));
 
-        // imprime a sequência de letras do arquivo
-        for (String letra : sequencia) {
-            System.out.print(letra);
-        }
-        System.out.println();
-
-        // imprime a sequencia codificada
-        for (Integer codigo : SC) {
-            System.out.print(codigo + ",");
-        }
-        System.out.println();
+        System.out.println("ARQUIVO COMPRIMIDO!");
 
         escreveNoArquivoEmBinario(SC, NOME_ARQUIVO_CODIFICADO);
     }
