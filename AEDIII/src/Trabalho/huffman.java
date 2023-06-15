@@ -1,9 +1,7 @@
-package Trabalho;
-
 import java.io.*;
 import java.util.*;
 
-public class Huffman {
+public class huffman {
 
     private static class No implements Comparable<No> {
         char ch;
@@ -22,21 +20,18 @@ public class Huffman {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        // Pega o path do diretório pai
-        String pathSrc = System.getProperty("user.dir") + "/AEDIII/src/Trabalho/imagens/";
+    private static String NOME_ARQUIVO_A_SER_CODIFICADO;
+    private static String NOME_ARQUIVO_CODIFICADO;
+    private static String NOME_ARQUIVO_DECODIFICADO;
+    public huffman(String pathArquivo, String pathArquivoComprimido, String pathArquivoDescomprimido){
+        this.NOME_ARQUIVO_A_SER_CODIFICADO = pathArquivo;
+        this.NOME_ARQUIVO_CODIFICADO = pathArquivoComprimido;
+        this.NOME_ARQUIVO_DECODIFICADO = pathArquivoDescomprimido;
+    }
 
-        Scanner sc = new Scanner(System.in);
+    public void comprime() throws IOException {
 
-        System.out.print("Insira o nome da imagem -> ");
-        String nomeArquivo = sc.nextLine();
-        sc.close();
-
-        String pathArquivoPrincipal = pathSrc + nomeArquivo + ".pgm";
-        String pathArquivoComprimido = pathSrc + nomeArquivo + "-comp-Huffman.pgm";
-        String pathArquivoDescomprimido = pathSrc + nomeArquivo + "-desc-Huffman.pgm";
-        // Ler o arquivo de entrada .pgm
-        FileInputStream in = new FileInputStream(pathArquivoPrincipal);
+        FileInputStream in = new FileInputStream(NOME_ARQUIVO_A_SER_CODIFICADO);
         byte[] data = new byte[in.available()];
         in.read(data);
         in.close();
@@ -72,7 +67,7 @@ public class Huffman {
         byte[] comprimido = comprimir(data, codigosHuffman);
 
         // Escrever o arquivo comprimido .pgm no arquivo de saída
-        FileOutputStream out = new FileOutputStream(pathArquivoComprimido);
+        FileOutputStream out = new FileOutputStream(NOME_ARQUIVO_CODIFICADO);
         out.write(comprimido);
         out.close();
 
@@ -80,7 +75,7 @@ public class Huffman {
         byte[] dadosDecodificados = decodificar(comprimido, nos.get(0));
 
         // Escrever os dados decodificados no arquivo de saída
-        FileOutputStream decodedOutput = new FileOutputStream(pathArquivoDescomprimido);
+        FileOutputStream decodedOutput = new FileOutputStream(NOME_ARQUIVO_DECODIFICADO);
         decodedOutput.write(dadosDecodificados);
         decodedOutput.close();
     }
@@ -105,7 +100,7 @@ public class Huffman {
             String byteString = stringComprimida.substring(i, Math.min(i + 8, stringComprimida.length()));
             bytesComprimidos[i / 8] = (byte) Integer.parseInt(byteString, 2);
         }
-        System.out.println("Arquivo comprimido!");
+        System.out.println("ARQUIVO COMPRIMIDO!");
         return bytesComprimidos;
     }
 
@@ -128,7 +123,7 @@ public class Huffman {
                 }
             }
         }
-        System.out.println("Arquivo descomprimido!");
+        System.out.println("ARQUIVO DESCOMPRIMIDO!");
         return stringDecodificada.toString().getBytes();
     }
 }
