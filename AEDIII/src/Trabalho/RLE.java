@@ -1,30 +1,26 @@
-package Trabalho;
-
 import java.io.*;
 import java.util.*;
 
-public class RLE {
-    public static void main(String[] args) throws IOException {
-        // Pega o path do diretório pai
-        String pathSrc = System.getProperty("user.dir") + "/AEDIII/src/Trabalho/imagens/";
+public class rle {
 
-        Scanner sc = new Scanner(System.in);
+    private static String NOME_ARQUIVO_A_SER_CODIFICADO;
+    private static String NOME_ARQUIVO_CODIFICADO;
+    private static String NOME_ARQUIVO_DECODIFICADO;
 
-        System.out.print("Insira o nome da imagem -> ");
-        String nomeArquivo = sc.nextLine();
-        sc.close();
-
-        String pathArquivoPrincipal = pathSrc + nomeArquivo + ".pgm";
-        String pathArquivoComprimido = pathSrc + nomeArquivo + "-comp-RLE.pgm";
-        String pathArquivoDescomprimido = pathSrc + nomeArquivo + "-desc-RLE.pgm";
-
-        Comprime(pathArquivoPrincipal, pathArquivoComprimido);
-        Descomprime(pathArquivoComprimido, pathArquivoDescomprimido);
+    public rle(String pathArquivo, String pathArquivoComprimido, String pathArquivoDescomprimido) {
+        this.NOME_ARQUIVO_A_SER_CODIFICADO = pathArquivo;
+        this.NOME_ARQUIVO_CODIFICADO = pathArquivoComprimido;
+        this.NOME_ARQUIVO_DECODIFICADO = pathArquivoDescomprimido;
     }
 
-    private static void Comprime(String pathArquivoPrincipal, String pathArquivoComprimido) throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader(pathArquivoPrincipal));
-        BufferedWriter out = new BufferedWriter(new FileWriter(pathArquivoComprimido));
+    public void comprime() throws IOException {
+        compressao();
+        descompressao();
+    }
+
+    private static void compressao() throws IOException {
+        BufferedReader in = new BufferedReader(new FileReader(NOME_ARQUIVO_A_SER_CODIFICADO));
+        BufferedWriter out = new BufferedWriter(new FileWriter(NOME_ARQUIVO_CODIFICADO));
 
         // Cabeçalho
         for (int i = 0; i < 4; i++) {
@@ -58,15 +54,15 @@ public class RLE {
                 }
             }
         }
+        System.out.println("ARQUIVO COMPRIMIDO!");
         in.close();
         out.close();
-        System.out.println("Arquivo comprimido!");
     }
 
-    private static void Descomprime(String pathArquivoPrincipal, String pathArquivoDescomprimido)
+    private static void descompressao()
             throws IOException {
-        BufferedReader in = new BufferedReader(new FileReader(pathArquivoPrincipal));
-        BufferedWriter out = new BufferedWriter(new FileWriter(pathArquivoDescomprimido));
+        BufferedReader in = new BufferedReader(new FileReader(NOME_ARQUIVO_CODIFICADO));
+        BufferedWriter out = new BufferedWriter(new FileWriter(NOME_ARQUIVO_DECODIFICADO));
 
         String linha;
 
@@ -93,8 +89,8 @@ public class RLE {
                 }
             }
         }
+        System.out.println("ARQUIVO DESCOMPRIMIDO!");
         in.close();
         out.close();
-        System.out.println("Arquivo descomprimido!");
     }
 }
